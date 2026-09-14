@@ -1,3 +1,4 @@
 [submodule "src/Erd-Tools"]
 	path = src/Erd-Tools
-	url = https://github.com/Nordgaren/Erd-Tools.git
+	url = https://github.com/failsafe42/Erd-Tools.git
+	branch = proton-fix
