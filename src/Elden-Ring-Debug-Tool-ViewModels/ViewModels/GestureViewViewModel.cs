@@ -39,10 +39,11 @@ namespace Elden_Ring_Debug_Tool_ViewModels.ViewModels
             {
                 return;
             }
-            
+            // Use dictionary to reduce number of reads so it doesn't freeze under proton
+            Dictionary<int, bool> gestureStates = Hook.GestureGameData.CheckAllGestures();
             foreach (GestureViewModel gesture in GestureCollectionView)
             {
-                gesture.Enabled = Hook.GestureGameData.CheckGesture(gesture.Id);
+                gesture.Enabled = gestureStates.TryGetValue(gesture.Id, out bool enabled) && enabled;
             }
         }
 
